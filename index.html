@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="meta/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="720">
+    <meta name="viewport" content="width=device-width, target-densitydpi=300dpi, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="format-detection" content="telephone=no" />
+    <meta charset="utf-8">
+
+    <!-- <link href="http://fonts.googleapis.com/css?family=Tangerine" rel="stylesheet" type="text/css"> -->
+
+    <style type="text/css">
+        body{
+            font-size:25px;
+            margin:0;
+        }
+        .outer{
+            height:100px;
+        }
+        .box{
+            width:31%;
+
+            display: inline-block;
+            background-color: #eee;
+            margin:0;
+            padding:2px;
+            height:100px;
+            text-align: center;
+            vertical-align: middle;
+            margin-top: 5px;
+        }
+        .box p{
+            line-height: 60px;
+        }
+    </style>
+    <title> Soundboard </title>
+    <script lang="javascript" type="text/javascript">
+    var sounds = [];
+        for (var i = 1; i <=9 ; i++) {
+            var bleep = new Audio();
+            bleep.src = i + ".wav";
+            sounds.push(bleep);
+        }
+    
+    function playQuick(sound_id){
+        var sound=sounds[sound_id];
+        if (sound.currentTime==0 || sound.currentTime==sound.duration)
+            sound.play();
+        else sound.currentTime=0;
+        console.log('current time : ' + sound.currentTime + " out of " + sound.duration)
+    }
+
+       
+        </script>
+</head>
+<body>
+
+    <div class="outer">
+    <h1 style="text-align: center;"> Free the Samples test</h1>
+    </div>
+    <div style="display:block; margin:auto auto; height:50%">
+        <div style="display:inline-block; width:100%; margin:0; vertical-align: middle;">
+            <div class="box" onclick ="playQuick(0)"> <p>Warm Quick Snare</p></div>
+            <div class="box" onclick ="playQuick(1)"><p>woody snare driven</p></div>
+            <div class="box" onclick ="playQuick(2)"> <p>bright hat</p></div>
+            
+           
+        </div>
+        <!-- Toms -->
+        <div style="display:inline-block; width:100%; margin:0; vertical-align: middle;">
+            <div class="box" onclick ="playQuick(3)"><p>Bass tone</p></div>
+            <div class="box" onclick ="playQuick(4)"><p>woodblock and shaker </p></div>
+            <div class="box" onclick ="playQuick(5)"><p>op hat1</p></div>
+          
+        </div>
+        <!-- hats -->
+        <div style="display:inline-block; width:100%; margin:0; vertical-align: middle;">
+            <div class="box" onclick ="playQuick(6)"><p>crunchy bright hat 2</p></div>
+            <div class="box" onclick ="playQuick(7)"><p>Hat choke crackle</p></div>
+            <div class="box" onclick ="playQuick(8)"><p>kik1</p></div>
+          
+        </div>
+    </div>  
+</body>
