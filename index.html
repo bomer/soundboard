@@ -61,6 +61,40 @@
         console.log('current time : ' + sound.currentTime + " out of " + sound.duration)
     }
 
+    // document.onkeydown = function(e) {
+    // e = e || window.event;
+    // switch(e.which || e.keyCode) {
+
+    // }
+
+    window.addEventListener("keydown", function (event) {
+  if (event.defaultPrevented) {
+    return; // Do nothing if the event was already processed
+  }
+  console.log('keydown' + event.key);
+
+  switch (event.key) {
+    case "a":
+      // Do something for "down arrow" key press.
+      playQuick(0);
+      break;
+    case "s": playQuick(1); break;
+    case "d": playQuick(2); break;
+    case "f": playQuick(3); break;
+    case "g": playQuick(4); break;
+    case "h": playQuick(5); break;
+    case "j": playQuick(6); break;
+    case "k": playQuick(7); break;
+    case "l": playQuick(8); break;  
+
+    default:
+      return; // Quit when this doesn't handle the key event.
+  }
+
+  // Cancel the default action to avoid it being handled twice
+  event.preventDefault();
+}, true);
+
        
         </script>
 </head>
@@ -71,24 +105,24 @@
     </div>
     <div style="display:block; margin:auto auto; height:50%">
         <div style="display:inline-block; width:100%; margin:0; vertical-align: middle;">
-            <div class="box" onclick ="playQuick(0)"> <p>Warm Snare</p></div>
-            <div class="box" onclick ="playQuick(1)"><p>woody snare</p></div>
-            <div class="box" onclick ="playQuick(2)"> <p>bright hat</p></div>
+            <div class="box" onclick ="playQuick(0)"> <p><b>A</b> - Warm Snare</p></div>
+            <div class="box" onclick ="playQuick(1)"><p><b>S</b> - woody snare</p></div>
+            <div class="box" onclick ="playQuick(2)"> <p><b>D</b> - bright hat</p></div>
             
            
         </div>
         <!-- Toms -->
         <div style="display:inline-block; width:100%; margin:0; vertical-align: middle;">
-            <div class="box" onclick ="playQuick(3)"><p>Bass tone</p></div>
-            <div class="box" onclick ="playQuick(4)"><p>woodblock and shaker </p></div>
-            <div class="box" onclick ="playQuick(5)"><p>op hat1</p></div>
+            <div class="box" onclick ="playQuick(3)"><p><b>F</b> - Bass tone</p></div>
+            <div class="box" onclick ="playQuick(4)"><p><b>G</b> - woodblock and shaker </p></div>
+            <div class="box" onclick ="playQuick(5)"><p><b>H</b> - op hat1</p></div>
           
         </div>
         <!-- hats -->
         <div style="display:inline-block; width:100%; margin:0; vertical-align: middle;">
-            <div class="box" onclick ="playQuick(6)"><p>crunchy bright hat 2</p></div>
-            <div class="box" onclick ="playQuick(7)"><p>Hat choke crackle</p></div>
-            <div class="box" onclick ="playQuick(8)"><p>kik1</p></div>
+            <div class="box" onclick ="playQuick(6)"><p><b>J</b> - crunchy bright hat 2</p></div>
+            <div class="box" onclick ="playQuick(7)"><p><b>K</b> - Hat choke crackle</p></div>
+            <div class="box" onclick ="playQuick(8)"><p><b>L</b> - kik1</p></div>
           
         </div>
     </div>  
